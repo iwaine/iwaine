@@ -32,12 +32,52 @@ const quizQuestions: QuizQuestion[] = [
     ],
   },
   {
+    id: 'performance',
+    question: 'How demanding are your workloads?',
+    options: [
+      { label: 'Light (web browsing, emails, documents)', value: 'light' },
+      { label: 'Medium (multitasking, moderate apps)', value: 'medium' },
+      { label: 'Heavy (multiple pro apps, large files)', value: 'heavy', minBudget: 1599 },
+      { label: 'Extreme (4K/8K video, 3D, complex simulations)', value: 'extreme', minBudget: 2500 },
+    ],
+  },
+  {
     id: 'portability',
     question: 'Do you need portability?',
     options: [
       { label: 'Yes, I need to take it with me', value: 'yes', categoryPreference: 'laptop', portability: true },
       { label: 'No, it will stay in one place', value: 'no', categoryPreference: 'desktop', portability: false },
       { label: "I'm flexible", value: 'flexible' },
+    ],
+  },
+  {
+    id: 'battery',
+    question: 'How important is long battery life? (for laptops)',
+    options: [
+      { label: 'Very important - I need all-day battery', value: 'critical' },
+      { label: 'Somewhat important - 8+ hours is good', value: 'important' },
+      { label: 'Not important - Usually plugged in', value: 'not-important' },
+      { label: 'Not applicable - Getting a desktop', value: 'na', categoryPreference: 'desktop' },
+    ],
+  },
+  {
+    id: 'displays',
+    question: 'Will you use external displays?',
+    options: [
+      { label: 'No, just the built-in display', value: 'none' },
+      { label: 'Yes, one external display', value: 'one' },
+      { label: 'Yes, two or more displays', value: 'multiple', minBudget: 1299 },
+      { label: 'Multiple high-resolution displays (4K+)', value: 'pro-displays', minBudget: 1999 },
+    ],
+  },
+  {
+    id: 'memory',
+    question: 'How much multitasking do you do?',
+    options: [
+      { label: 'Light - Few apps open at once', value: 'light' },
+      { label: 'Moderate - Multiple apps and browser tabs', value: 'moderate' },
+      { label: 'Heavy - Many apps, VMs, or large projects', value: 'heavy', minBudget: 1599 },
+      { label: 'Extreme - Professional workflows with huge files', value: 'extreme', minBudget: 2500 },
     ],
   },
   {
@@ -52,6 +92,16 @@ const quizQuestions: QuizQuestion[] = [
     ],
   },
   {
+    id: 'refurbished',
+    question: 'Are you open to refurbished Macs?',
+    options: [
+      { label: 'Yes, I want to save money', value: 'yes' },
+      { label: 'Maybe, if the savings are significant', value: 'maybe' },
+      { label: 'No, I prefer brand new only', value: 'no' },
+      { label: 'Tell me more about refurbished', value: 'info' },
+    ],
+  },
+  {
     id: 'screen',
     question: 'Screen size preference?',
     options: [
@@ -59,6 +109,16 @@ const quizQuestions: QuizQuestion[] = [
       { label: 'Medium (14-15")', value: 'medium' },
       { label: 'Large (16"+)', value: 'large' },
       { label: "I don't need a display (desktop)", value: 'none', categoryPreference: 'desktop' },
+    ],
+  },
+  {
+    id: 'futureproof',
+    question: 'How long do you plan to keep this Mac?',
+    options: [
+      { label: '2-3 years', value: 'short' },
+      { label: '4-5 years', value: 'medium' },
+      { label: '5+ years - I want it to last', value: 'long', minBudget: 1299 },
+      { label: '7+ years - Maximum longevity', value: 'very-long', minBudget: 1999 },
     ],
   },
 ];
@@ -95,12 +155,49 @@ export default function Quiz() {
         score += matchingUseCases.length * 10;
       }
 
+      // Performance requirements
+      const performanceAnswer = userAnswers.performance;
+      if (performanceAnswer) {
+        if (performanceAnswer.value === 'light' && (mac.chip === 'M2' || mac.chip === 'M3')) score += 10;
+        if (performanceAnswer.value === 'medium' && (mac.chip === 'M3' || mac.chip === 'M4')) score += 10;
+        if (performanceAnswer.value === 'heavy' && (mac.chip.includes('Pro') || mac.chip.includes('Max'))) score += 15;
+        if (performanceAnswer.value === 'extreme' && (mac.chip.includes('Max') || mac.chip.includes('Ultra'))) score += 20;
+      }
+
       // Category preference (laptop vs desktop)
       const portabilityAnswer = userAnswers.portability;
       if (portabilityAnswer?.categoryPreference) {
         if (mac.category === portabilityAnswer.categoryPreference) {
           score += 15;
         }
+      }
+
+      // Battery life importance (for laptops)
+      const batteryAnswer = userAnswers.battery;
+      if (batteryAnswer && mac.batteryLife) {
+        if (batteryAnswer.value === 'critical' && mac.batteryLife >= 18) score += 10;
+        if (batteryAnswer.value === 'important' && mac.batteryLife >= 15) score += 5;
+        if (batteryAnswer.categoryPreference === 'desktop' && mac.category === 'desktop') score += 10;
+      }
+
+      // External displays
+      const displaysAnswer = userAnswers.displays;
+      if (displaysAnswer) {
+        if (displaysAnswer.value === 'multiple' && (mac.chip.includes('Pro') || mac.chip.includes('Max') || mac.chip === 'M3' || mac.chip === 'M4')) {
+          score += 10;
+        }
+        if (displaysAnswer.value === 'pro-displays' && (mac.chip.includes('Max') || mac.chip.includes('Ultra') || mac.chip.includes('Pro'))) {
+          score += 15;
+        }
+      }
+
+      // Memory/Multitasking needs
+      const memoryAnswer = userAnswers.memory;
+      if (memoryAnswer) {
+        if (memoryAnswer.value === 'light' && mac.memory.includes(8)) score += 8;
+        if (memoryAnswer.value === 'moderate' && mac.memory.includes(16)) score += 10;
+        if (memoryAnswer.value === 'heavy' && (mac.memory.includes(32) || mac.memory.includes(36))) score += 12;
+        if (memoryAnswer.value === 'extreme' && mac.memory[mac.memory.length - 1] >= 64) score += 15;
       }
 
       const screenAnswer = userAnswers.screen;
@@ -127,11 +224,25 @@ export default function Quiz() {
         }
       }
 
+      // Refurbished preference
+      const refurbishedAnswer = userAnswers.refurbished;
+      if (refurbishedAnswer) {
+        if (refurbishedAnswer.value === 'yes' && mac.refurbishedAvailable) score += 8;
+        if (refurbishedAnswer.value === 'no' && !mac.refurbishedAvailable) score += 3;
+      }
+
       // Screen size preference
       if (screenAnswer && mac.display) {
         if (screenAnswer.value === 'compact' && mac.display.size <= 13.6) score += 10;
         if (screenAnswer.value === 'medium' && mac.display.size >= 14 && mac.display.size <= 15.5) score += 10;
         if (screenAnswer.value === 'large' && mac.display.size >= 16) score += 10;
+      }
+
+      // Future-proofing
+      const futureproofAnswer = userAnswers.futureproof;
+      if (futureproofAnswer) {
+        if (futureproofAnswer.value === 'long' && (mac.chip === 'M4' || mac.chip.includes('M4') || mac.chip === 'M3')) score += 10;
+        if (futureproofAnswer.value === 'very-long' && mac.chip.includes('M4')) score += 15;
       }
 
       // Minimum budget requirements
@@ -140,8 +251,8 @@ export default function Quiz() {
       }
 
       // Prefer newer models (M4 > M3 > M2)
-      if (mac.chip.includes('M4')) score += 3;
-      else if (mac.chip.includes('M3')) score += 2;
+      if (mac.chip.includes('M4')) score += 5;
+      else if (mac.chip.includes('M3')) score += 3;
 
       return { mac, score };
     });
