@@ -76,7 +76,7 @@ export const macProducts: MacProduct[] = [
     releaseYear: 2022,
     weight: 1.24,
     batteryLife: 18,
-    image: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/macbook-air-midnight-select-20220606?wid=904&hei=840&fmt=jpeg&qlt=90&.v=1653084303665',
+    image: 'https://www.apple.com/v/macbook-air-m2/e/images/overview/design/design_hero__dvd39l6oqf6q_large.jpg',
     affiliateLinks: {
       apple: 'https://www.apple.com/shop/buy-mac/macbook-air/13-inch-m2',
       amazon: 'https://amazon.com',
@@ -113,7 +113,7 @@ export const macProducts: MacProduct[] = [
     releaseYear: 2024,
     weight: 1.24,
     batteryLife: 18,
-    image: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/macbook-air-midnight-select-20220606?wid=904&hei=840&fmt=jpeg&qlt=90&.v=1653084303665',
+    image: 'https://www.apple.com/v/macbook-air-m2/e/images/overview/design/design_hero__dvd39l6oqf6q_large.jpg',
     affiliateLinks: {
       apple: 'https://www.apple.com/shop/buy-mac/macbook-air/13-inch-m3',
     },
@@ -147,7 +147,7 @@ export const macProducts: MacProduct[] = [
     releaseYear: 2024,
     weight: 1.51,
     batteryLife: 18,
-    image: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/macbook-air-15-midnight-select-20230606?wid=904&hei=840&fmt=jpeg&qlt=90&.v=1684518479433',
+    image: 'https://www.apple.com/v/macbook-air/s/images/overview/design/design_hero__bq0u11uh5xme_large.jpg',
     affiliateLinks: {
       apple: 'https://www.apple.com/shop/buy-mac/macbook-air/15-inch-m3',
     },
@@ -181,7 +181,7 @@ export const macProducts: MacProduct[] = [
     releaseYear: 2023,
     weight: 1.55,
     batteryLife: 22,
-    image: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp14-spacegray-select-202310?wid=904&hei=840&fmt=jpeg&qlt=90&.v=1697311054290',
+    image: 'https://www.apple.com/v/macbook-pro-14-and-16/d/images/overview/hero/hero_intro_endframe__e6khcva4hkeq_large.jpg',
     affiliateLinks: {
       apple: 'https://www.apple.com/shop/buy-mac/macbook-pro/14-inch-m3',
     },
@@ -216,7 +216,7 @@ export const macProducts: MacProduct[] = [
     releaseYear: 2023,
     weight: 1.61,
     batteryLife: 18,
-    image: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp14-spacegray-select-202310?wid=904&hei=840&fmt=jpeg&qlt=90&.v=1697311054290',
+    image: 'https://www.apple.com/v/macbook-pro-14-and-16/d/images/overview/hero/hero_intro_endframe__e6khcva4hkeq_large.jpg',
     affiliateLinks: {
       apple: 'https://www.apple.com/shop/buy-mac/macbook-pro/14-inch-m3-pro-m3-max',
     },
@@ -250,7 +250,7 @@ export const macProducts: MacProduct[] = [
     releaseYear: 2023,
     weight: 1.62,
     batteryLife: 18,
-    image: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp14-spacegray-select-202310?wid=904&hei=840&fmt=jpeg&qlt=90&.v=1697311054290',
+    image: 'https://www.apple.com/v/macbook-pro-14-and-16/d/images/overview/hero/hero_intro_endframe__e6khcva4hkeq_large.jpg',
     affiliateLinks: {
       apple: 'https://www.apple.com/shop/buy-mac/macbook-pro/14-inch-m3-pro-m3-max',
     },
@@ -284,7 +284,7 @@ export const macProducts: MacProduct[] = [
     releaseYear: 2024,
     weight: 1.55,
     batteryLife: 24,
-    image: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp14-m4-pro-max-spaceblack-select-202411?wid=904&hei=840&fmt=jpeg&qlt=90&.v=1730861829378',
+    image: 'https://www.apple.com/v/macbook-pro/ai/images/overview/hero/hero_intro_endframe__bk2ya25xknz6_large.jpg',
     affiliateLinks: {
       apple: 'https://www.apple.com/shop/buy-mac/macbook-pro/14-inch-m4',
     },
@@ -318,7 +318,7 @@ export const macProducts: MacProduct[] = [
     releaseYear: 2024,
     weight: 1.61,
     batteryLife: 24,
-    image: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp14-m4-pro-max-spaceblack-select-202411?wid=904&hei=840&fmt=jpeg&qlt=90&.v=1730861829378',
+    image: 'https://www.apple.com/v/macbook-pro/ai/images/overview/hero/hero_intro_endframe__bk2ya25xknz6_large.jpg',
     affiliateLinks: {
       apple: 'https://www.apple.com/shop/buy-mac/macbook-pro/14-inch-m4-pro-m4-max',
     },
@@ -352,7 +352,7 @@ export const macProducts: MacProduct[] = [
     releaseYear: 2024,
     weight: 1.62,
     batteryLife: 24,
-    image: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp14-m4-pro-max-spaceblack-select-202411?wid=904&hei=840&fmt=jpeg&qlt=90&.v=1730861829378',
+    image: 'https://www.apple.com/v/macbook-pro/ai/images/overview/hero/hero_intro_endframe__bk2ya25xknz6_large.jpg',
     affiliateLinks: {
       apple: 'https://www.apple.com/shop/buy-mac/macbook-pro/14-inch-m4-pro-m4-max',
     },
@@ -386,7 +386,7 @@ export const macProducts: MacProduct[] = [
     releaseYear: 2024,
     weight: 2.14,
     batteryLife: 24,
-    image: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp16-m4-pro-max-spaceblack-select-202411?wid=904&hei=840&fmt=jpeg&qlt=90&.v=1730861928555',
+    image: 'https://www.apple.com/v/macbook-pro/ai/images/overview/hero/hero_intro_endframe__bk2ya25xknz6_large.jpg',
     affiliateLinks: {
       apple: 'https://www.apple.com/shop/buy-mac/macbook-pro/16-inch-m4-pro-m4-max',
     },
@@ -420,7 +420,7 @@ export const macProducts: MacProduct[] = [
     releaseYear: 2024,
     weight: 2.15,
     batteryLife: 24,
-    image: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp16-m4-pro-max-spaceblack-select-202411?wid=904&hei=840&fmt=jpeg&qlt=90&.v=1730861928555',
+    image: 'https://www.apple.com/v/macbook-pro/ai/images/overview/hero/hero_intro_endframe__bk2ya25xknz6_large.jpg',
     affiliateLinks: {
       apple: 'https://www.apple.com/shop/buy-mac/macbook-pro/16-inch-m4-pro-m4-max',
     },
@@ -452,7 +452,7 @@ export const macProducts: MacProduct[] = [
     features: ['4.5K Retina display', 'Seven vibrant colors', '1080p FaceTime camera', 'Six-speaker sound'],
     bestFor: ['everyday', 'student', 'creative', 'photo-editing'],
     releaseYear: 2023,
-    image: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/imac-24-blue-selection-hero-202310?wid=904&hei=840&fmt=jpeg&qlt=90&.v=1697229623322',
+    image: 'https://www.apple.com/v/imac/q/images/overview/hero/hero_intro_endframe__c8d2jbxq85iq_large.jpg',
     affiliateLinks: {
       apple: 'https://www.apple.com/shop/buy-mac/imac',
     },
@@ -485,7 +485,7 @@ export const macProducts: MacProduct[] = [
     features: ['Latest M4 chip', '4.5K Retina display', 'Center Stage camera', 'Nano-texture option'],
     bestFor: ['everyday', 'student', 'professional', 'creative'],
     releaseYear: 2024,
-    image: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/imac-24-blue-selection-hero-202410?wid=904&hei=840&fmt=jpeg&qlt=90&.v=1728504197101',
+    image: 'https://www.apple.com/v/imac/q/images/overview/hero/hero_intro_endframe__c8d2jbxq85iq_large.jpg',
     affiliateLinks: {
       apple: 'https://www.apple.com/shop/buy-mac/imac',
     },
@@ -513,7 +513,7 @@ export const macProducts: MacProduct[] = [
     features: ['Compact design', 'Great value', 'Gigabit Ethernet', 'Two Thunderbolt 4 ports'],
     bestFor: ['everyday', 'student', 'developer'],
     releaseYear: 2023,
-    image: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mac-mini-hero-202301?wid=904&hei=840&fmt=jpeg&qlt=90&.v=1670038314708',
+    image: 'https://www.apple.com/v/mac-mini/p/images/overview/hero/hero_intro_endframe__b4k1ndvskyaa_large.jpg',
     affiliateLinks: {
       apple: 'https://www.apple.com/shop/buy-mac/mac-mini',
     },
@@ -542,7 +542,7 @@ export const macProducts: MacProduct[] = [
     features: ['M2 Pro performance', 'Four Thunderbolt 4 ports', '10Gb Ethernet option', 'Compact powerhouse'],
     bestFor: ['professional', 'developer', 'video-editing'],
     releaseYear: 2023,
-    image: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mac-mini-hero-202301?wid=904&hei=840&fmt=jpeg&qlt=90&.v=1670038314708',
+    image: 'https://www.apple.com/v/mac-mini/p/images/overview/hero/hero_intro_endframe__b4k1ndvskyaa_large.jpg',
     affiliateLinks: {
       apple: 'https://www.apple.com/shop/buy-mac/mac-mini',
     },
@@ -571,7 +571,7 @@ export const macProducts: MacProduct[] = [
     features: ['Latest M4 chip', 'Incredibly compact', 'Three Thunderbolt 4 ports', 'Best value Mac'],
     bestFor: ['everyday', 'student', 'developer', 'professional'],
     releaseYear: 2024,
-    image: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mac-mini-hero-202410?wid=904&hei=840&fmt=jpeg&qlt=90&.v=1728347029024',
+    image: 'https://www.apple.com/v/mac-mini/p/images/overview/hero/hero_intro_endframe__b4k1ndvskyaa_large.jpg',
     affiliateLinks: {
       apple: 'https://www.apple.com/shop/buy-mac/mac-mini',
     },
@@ -599,7 +599,7 @@ export const macProducts: MacProduct[] = [
     features: ['M4 Pro chip', 'Five Thunderbolt 5 ports', 'Thunderbolt 5 connectivity', 'Pro performance in compact size'],
     bestFor: ['professional', 'developer', 'video-editing', 'creative'],
     releaseYear: 2024,
-    image: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mac-mini-hero-202410?wid=904&hei=840&fmt=jpeg&qlt=90&.v=1728347029024',
+    image: 'https://www.apple.com/v/mac-mini/p/images/overview/hero/hero_intro_endframe__b4k1ndvskyaa_large.jpg',
     affiliateLinks: {
       apple: 'https://www.apple.com/shop/buy-mac/mac-mini',
     },
@@ -627,7 +627,7 @@ export const macProducts: MacProduct[] = [
     features: ['Powerful desktop', 'SDXC card slot', 'Four Thunderbolt 4 ports', '10Gb Ethernet'],
     bestFor: ['professional', 'creative', 'video-editing', '3d-rendering'],
     releaseYear: 2023,
-    image: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mac-studio-select-202306?wid=904&hei=840&fmt=jpeg&qlt=90&.v=1684345161009',
+    image: 'https://www.apple.com/v/mac-studio/d/images/overview/hero/hero_intro_endframe__ev02wpqlqziq_large.jpg',
     affiliateLinks: {
       apple: 'https://www.apple.com/shop/buy-mac/mac-studio',
     },
@@ -656,7 +656,7 @@ export const macProducts: MacProduct[] = [
     features: ['Maximum performance', 'Six Thunderbolt 4 ports', 'Up to 192GB unified memory', 'Ultimate pro machine'],
     bestFor: ['professional', 'creative', 'video-editing', '3d-rendering'],
     releaseYear: 2023,
-    image: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mac-studio-select-202306?wid=904&hei=840&fmt=jpeg&qlt=90&.v=1684345161009',
+    image: 'https://www.apple.com/v/mac-studio/d/images/overview/hero/hero_intro_endframe__ev02wpqlqziq_large.jpg',
     affiliateLinks: {
       apple: 'https://www.apple.com/shop/buy-mac/mac-studio',
     },
@@ -684,7 +684,7 @@ export const macProducts: MacProduct[] = [
     features: ['PCIe expansion slots', 'Rack mountable', 'Eight Thunderbolt 4 ports', 'Maximum expandability'],
     bestFor: ['professional', 'video-editing', '3d-rendering'],
     releaseYear: 2023,
-    image: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mac-pro-hero-202306?wid=904&hei=840&fmt=jpeg&qlt=90&.v=1683658119002',
+    image: 'https://www.apple.com/v/mac-pro/j/images/overview/hero/hero_intro_endframe__bz9u3v0xqxiq_large.jpg',
     affiliateLinks: {
       apple: 'https://www.apple.com/shop/buy-mac/mac-pro',
     },
