@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import { macProducts, type UseCase, type MacProduct } from '@/data/macs';
 import Link from 'next/link';
 
@@ -284,13 +285,25 @@ export default function Quiz() {
 
         <div className="grid md:grid-cols-3 gap-8 mb-12">
           {recommendations.map((mac, index) => (
-            <div key={mac.id} className="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-6 relative">
+            <div key={mac.id} className="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-6 relative overflow-hidden">
               {index === 0 && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-blue-600 text-white px-4 py-1 rounded-full text-sm font-semibold">
+                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-blue-600 text-white px-4 py-1 rounded-full text-sm font-semibold z-10">
                   Best Match
                 </div>
               )}
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 mt-2">
+
+              {/* Product Image */}
+              <div className="relative h-40 mb-6 mt-2">
+                <Image
+                  src={mac.image}
+                  alt={mac.name}
+                  fill
+                  className="object-contain"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                />
+              </div>
+
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
                 {mac.name}
               </h3>
               <p className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-4">

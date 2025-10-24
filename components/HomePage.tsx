@@ -1,11 +1,23 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useLanguage } from '@/contexts/LanguageContext';
 import LanguageSelector from './LanguageSelector';
+import { macProducts } from '@/data/macs';
 
 export default function HomePage() {
   const { t } = useLanguage();
+
+  // Get representative products for each Mac model
+  const featuredMacs = [
+    macProducts.find(m => m.id === 'mba-m3-13')!, // MacBook Air
+    macProducts.find(m => m.id === 'mbp-m4-14')!, // MacBook Pro
+    macProducts.find(m => m.id === 'imac-m4-24')!, // iMac
+    macProducts.find(m => m.id === 'mini-m4')!, // Mac mini
+    macProducts.find(m => m.id === 'studio-m2max')!, // Mac Studio
+    macProducts.find(m => m.id === 'pro-m2ultra')!, // Mac Pro
+  ];
 
   return (
     <div className="min-h-screen">
@@ -108,113 +120,34 @@ export default function HomePage() {
             {t.home.lineup.title}
           </h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* MacBook Air */}
-            <div className="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-lg hover:shadow-xl transition">
-              <h4 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">MacBook Air</h4>
-              <p className="text-gray-600 dark:text-gray-400 mb-4">{t.home.lineup.from} $1,099</p>
-              <ul className="space-y-2 text-gray-700 dark:text-gray-300 mb-6">
-                <li>• M2 or M3 chip</li>
-                <li>• 13" or 15" display</li>
-                <li>• Fanless design</li>
-                <li>• Up to 18 hours battery</li>
-              </ul>
-              <Link
-                href="/quiz?preference=macbook-air"
-                className="block text-center bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition"
-              >
-                {t.home.lineup.learnMore}
-              </Link>
-            </div>
+            {featuredMacs.map((mac) => (
+              <div key={mac.id} className="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-lg hover:shadow-xl transition overflow-hidden">
+                {/* Product Image */}
+                <div className="relative h-48 mb-6">
+                  <Image
+                    src={mac.image}
+                    alt={mac.name}
+                    fill
+                    className="object-contain"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  />
+                </div>
 
-            {/* MacBook Pro */}
-            <div className="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-lg hover:shadow-xl transition">
-              <h4 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">MacBook Pro</h4>
-              <p className="text-gray-600 dark:text-gray-400 mb-4">{t.home.lineup.from} $1,599</p>
-              <ul className="space-y-2 text-gray-700 dark:text-gray-300 mb-6">
-                <li>• M3, M4, Pro, or Max chips</li>
-                <li>• 14" or 16" XDR display</li>
-                <li>• ProMotion 120Hz</li>
-                <li>• Up to 24 hours battery</li>
-              </ul>
-              <Link
-                href="/quiz?preference=macbook-pro"
-                className="block text-center bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition"
-              >
-                {t.home.lineup.learnMore}
-              </Link>
-            </div>
-
-            {/* iMac */}
-            <div className="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-lg hover:shadow-xl transition">
-              <h4 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">iMac</h4>
-              <p className="text-gray-600 dark:text-gray-400 mb-4">{t.home.lineup.from} $1,299</p>
-              <ul className="space-y-2 text-gray-700 dark:text-gray-300 mb-6">
-                <li>• M3 or M4 chip</li>
-                <li>• 24" 4.5K Retina display</li>
-                <li>• Seven vibrant colors</li>
-                <li>• All-in-one design</li>
-              </ul>
-              <Link
-                href="/quiz?preference=imac"
-                className="block text-center bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition"
-              >
-                {t.home.lineup.learnMore}
-              </Link>
-            </div>
-
-            {/* Mac mini */}
-            <div className="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-lg hover:shadow-xl transition">
-              <h4 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Mac mini</h4>
-              <p className="text-gray-600 dark:text-gray-400 mb-4">{t.home.lineup.from} $599</p>
-              <ul className="space-y-2 text-gray-700 dark:text-gray-300 mb-6">
-                <li>• M2, M4, or Pro chips</li>
-                <li>• Ultra-compact design</li>
-                <li>• Best value Mac</li>
-                <li>• Bring your own display</li>
-              </ul>
-              <Link
-                href="/quiz?preference=mac-mini"
-                className="block text-center bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition"
-              >
-                {t.home.lineup.learnMore}
-              </Link>
-            </div>
-
-            {/* Mac Studio */}
-            <div className="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-lg hover:shadow-xl transition">
-              <h4 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Mac Studio</h4>
-              <p className="text-gray-600 dark:text-gray-400 mb-4">{t.home.lineup.from} $1,999</p>
-              <ul className="space-y-2 text-gray-700 dark:text-gray-300 mb-6">
-                <li>• M2 Max or Ultra chip</li>
-                <li>• Professional powerhouse</li>
-                <li>• Extensive connectivity</li>
-                <li>• Compact desktop</li>
-              </ul>
-              <Link
-                href="/quiz?preference=mac-studio"
-                className="block text-center bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition"
-              >
-                {t.home.lineup.learnMore}
-              </Link>
-            </div>
-
-            {/* Mac Pro */}
-            <div className="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-lg hover:shadow-xl transition">
-              <h4 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Mac Pro</h4>
-              <p className="text-gray-600 dark:text-gray-400 mb-4">{t.home.lineup.from} $6,999</p>
-              <ul className="space-y-2 text-gray-700 dark:text-gray-300 mb-6">
-                <li>• M2 Ultra chip</li>
-                <li>• PCIe expansion</li>
-                <li>• Maximum performance</li>
-                <li>• Rack mountable</li>
-              </ul>
-              <Link
-                href="/quiz?preference=mac-pro"
-                className="block text-center bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition"
-              >
-                {t.home.lineup.learnMore}
-              </Link>
-            </div>
+                <h4 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">{mac.model}</h4>
+                <p className="text-gray-600 dark:text-gray-400 mb-4">{t.home.lineup.from} ${mac.price.base.toLocaleString()}</p>
+                <ul className="space-y-2 text-gray-700 dark:text-gray-300 mb-6">
+                  {mac.features.slice(0, 4).map((feature, idx) => (
+                    <li key={idx}>• {feature}</li>
+                  ))}
+                </ul>
+                <Link
+                  href="/quiz"
+                  className="block text-center bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition"
+                >
+                  {t.home.lineup.learnMore}
+                </Link>
+              </div>
+            ))}
           </div>
         </div>
       </section>
