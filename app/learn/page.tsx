@@ -1,11 +1,12 @@
-import Link from 'next/link';
+'use client';
 
-export const metadata = {
-  title: 'Learn About Mac Specs & Features | Mac Finder',
-  description: 'Comprehensive guide to understanding Mac specifications, chips, displays, and features. Make an informed decision when buying your next Mac.',
-};
+import Link from 'next/link';
+import { useLanguage } from '@/contexts/LanguageContext';
+import LanguageSelector from '@/components/LanguageSelector';
 
 export default function LearnPage() {
+  const { t } = useLanguage();
+
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       {/* Navigation */}
@@ -13,11 +14,14 @@ export default function LearnPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16 items-center">
             <Link href="/" className="text-2xl font-bold text-gray-900 dark:text-white">
-              Mac Finder
+              {t.nav.title}
             </Link>
-            <Link href="/" className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
-              ← Back to Home
-            </Link>
+            <div className="flex items-center gap-4">
+              <Link href="/" className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
+                ← {t.nav.backToHome}
+              </Link>
+              <LanguageSelector />
+            </div>
           </div>
         </div>
       </nav>
@@ -25,30 +29,30 @@ export default function LearnPage() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            Understanding Mac Specifications
+            {t.learn.title}
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-400">
-            Everything you need to know to make an informed decision
+            {t.learn.subtitle}
           </p>
         </div>
 
         {/* Table of Contents */}
         <div className="bg-blue-50 dark:bg-blue-900/20 rounded-xl p-6 mb-12">
-          <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Quick Navigation</h2>
+          <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">{t.learn.toc.title}</h2>
           <ul className="space-y-2">
-            <li><a href="#chips" className="text-blue-600 dark:text-blue-400 hover:underline">Apple Silicon Chips (M-series)</a></li>
-            <li><a href="#memory" className="text-blue-600 dark:text-blue-400 hover:underline">Unified Memory (RAM)</a></li>
-            <li><a href="#storage" className="text-blue-600 dark:text-blue-400 hover:underline">Storage Options</a></li>
-            <li><a href="#displays" className="text-blue-600 dark:text-blue-400 hover:underline">Display Technology</a></li>
-            <li><a href="#ports" className="text-blue-600 dark:text-blue-400 hover:underline">Ports & Connectivity</a></li>
-            <li><a href="#choosing" className="text-blue-600 dark:text-blue-400 hover:underline">Choosing the Right Mac</a></li>
+            <li><a href="#chips" className="text-blue-600 dark:text-blue-400 hover:underline">{t.learn.toc.chips}</a></li>
+            <li><a href="#memory" className="text-blue-600 dark:text-blue-400 hover:underline">{t.learn.toc.memory}</a></li>
+            <li><a href="#storage" className="text-blue-600 dark:text-blue-400 hover:underline">{t.learn.toc.storage}</a></li>
+            <li><a href="#displays" className="text-blue-600 dark:text-blue-400 hover:underline">{t.learn.toc.displays}</a></li>
+            <li><a href="#ports" className="text-blue-600 dark:text-blue-400 hover:underline">{t.learn.toc.ports}</a></li>
+            <li><a href="#choosing" className="text-blue-600 dark:text-blue-400 hover:underline">{t.learn.toc.choosing}</a></li>
           </ul>
         </div>
 
         {/* Apple Silicon Chips */}
         <section id="chips" className="mb-12 bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg">
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
-            Apple Silicon Chips (M-series)
+            {t.learn.toc.chips}
           </h2>
 
           <div className="space-y-6">
@@ -136,7 +140,7 @@ export default function LearnPage() {
         {/* Unified Memory */}
         <section id="memory" className="mb-12 bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg">
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
-            Unified Memory (RAM)
+            {t.learn.toc.memory}
           </h2>
 
           <p className="text-gray-700 dark:text-gray-300 mb-4">
@@ -175,7 +179,7 @@ export default function LearnPage() {
         {/* Storage */}
         <section id="storage" className="mb-12 bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg">
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
-            Storage Options
+            {t.learn.toc.storage}
           </h2>
 
           <p className="text-gray-700 dark:text-gray-300 mb-4">
@@ -205,7 +209,7 @@ export default function LearnPage() {
         {/* Display Technology */}
         <section id="displays" className="mb-12 bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg">
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
-            Display Technology
+            {t.learn.toc.displays}
           </h2>
 
           <div className="space-y-6">
@@ -243,7 +247,7 @@ export default function LearnPage() {
         {/* Ports & Connectivity */}
         <section id="ports" className="mb-12 bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg">
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
-            Ports & Connectivity
+            {t.learn.toc.ports}
           </h2>
 
           <div className="space-y-4">
@@ -297,7 +301,7 @@ export default function LearnPage() {
         {/* Choosing the Right Mac */}
         <section id="choosing" className="mb-12 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-700 rounded-xl p-8 shadow-lg">
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
-            Choosing the Right Mac
+            {t.learn.toc.choosing}
           </h2>
 
           <div className="space-y-6">
@@ -345,13 +349,13 @@ export default function LearnPage() {
 
         {/* CTA */}
         <div className="text-center bg-blue-600 dark:bg-blue-700 rounded-xl p-8 text-white">
-          <h3 className="text-2xl font-bold mb-4">Ready to Find Your Perfect Mac?</h3>
-          <p className="mb-6">Take our interactive quiz to get personalized recommendations</p>
+          <h3 className="text-2xl font-bold mb-4">{t.learn.cta.title}</h3>
+          <p className="mb-6">{t.learn.cta.subtitle}</p>
           <Link
             href="/quiz"
             className="inline-block bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition"
           >
-            Start the Quiz
+            {t.learn.cta.button}
           </Link>
         </div>
       </div>

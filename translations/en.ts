@@ -157,6 +157,110 @@ export const en = {
     },
   },
 
+  // Budget
+  budget: {
+    title: 'Budget Calculator',
+    subtitle: 'Find the best Mac within your budget, including refurbished options',
+    controls: {
+      yourBudget: 'Your Budget:',
+      includeRefurbished: 'Include refurbished models',
+      showFinancing: 'Show financing options',
+      financingPeriod: 'Financing Period: {months} months',
+      months: '{n} months',
+    },
+    results: {
+      found: 'Found {count} Mac models within your ${budget} budget',
+      includingRefurb: '(including refurbished)',
+      refurbishedOnly: 'Refurbished Only',
+      chip: 'Chip:',
+      memory: 'Memory:',
+      display: 'Display:',
+      save: 'Save ${amount} with refurbished!',
+      refurbPrice: 'Refurb: ${price}',
+      buyNew: 'Buy New - ${price}',
+      buyRefurbished: 'Buy Refurbished - ${price}',
+      monthlyPayment: '${amount}/month for {months} months',
+    },
+    emptyState: {
+      title: 'No Macs found within your budget. Try increasing your budget.',
+      subtitle: 'The most affordable Mac starts at $599 (Mac mini M4)',
+    },
+    info: {
+      title: 'About Refurbished Macs',
+      question: 'What is a refurbished Mac?',
+      answer: 'Apple Certified Refurbished products are pre-owned Apple products that have been thoroughly tested and certified by Apple.',
+      benefits: {
+        warranty: 'Full Apple warranty (1 year)',
+        condition: 'Like-new condition with new outer shell',
+        tested: 'Thoroughly tested and certified',
+        applecare: 'Eligible for AppleCare+',
+        savings: 'Save 15-30% off retail price',
+      },
+    },
+    disclosure: {
+      title: 'Disclosure:',
+      text: 'We earn commissions from qualifying purchases through affiliate links. Prices shown are approximate and may vary.',
+    },
+  },
+
+  // Compare
+  compare: {
+    title: 'Compare Mac Models',
+    subtitle: 'Select up to 3 Mac models to compare side-by-side',
+    filters: {
+      all: 'All Macs',
+      laptops: 'Laptops',
+      desktops: 'Desktops',
+    },
+    selected: '{count} of 3 models selected',
+    clearAll: 'Clear all',
+    emptyState: 'Select Mac models above to start comparing',
+    table: {
+      specification: 'Specification',
+      startingPrice: 'Starting Price',
+      refurb: 'Refurb:',
+      chip: 'Chip',
+      cpuGpu: '{cpu}-core CPU, {gpu}-core GPU',
+      memoryOptions: 'Memory Options',
+      storageOptions: 'Storage Options',
+      display: 'Display',
+      noDisplay: 'No built-in display',
+      batteryLife: 'Battery Life',
+      upToHours: 'Up to {hours} hours',
+      weight: 'Weight',
+      ports: 'Ports',
+      thunderbolt: 'Thunderbolt',
+      usbA: 'USB-A',
+      hdmi: 'HDMI',
+      sdCard: 'SD Card',
+      ethernet: 'Ethernet',
+      bestFor: 'Best For',
+      buyNow: 'Buy Now',
+      apple: 'Apple',
+      amazon: 'Amazon',
+    },
+  },
+
+  // Learn
+  learn: {
+    title: 'Understanding Mac Specifications',
+    subtitle: 'Everything you need to know to make an informed decision',
+    toc: {
+      title: 'Quick Navigation',
+      chips: 'Apple Silicon Chips (M-series)',
+      memory: 'Unified Memory (RAM)',
+      storage: 'Storage Options',
+      displays: 'Display Technology',
+      ports: 'Ports & Connectivity',
+      choosing: 'Choosing the Right Mac',
+    },
+    cta: {
+      title: 'Ready to Find Your Perfect Mac?',
+      subtitle: 'Take our interactive quiz to get personalized recommendations',
+      button: 'Start the Quiz',
+    },
+  },
+
   // Common
   common: {
     loading: 'Loading...',

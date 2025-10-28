@@ -159,6 +159,110 @@ export const fr: Translation = {
     },
   },
 
+  // Budget
+  budget: {
+    title: 'Calculateur de Budget',
+    subtitle: 'Trouvez la meilleure Mac dans votre budget, y compris les options reconditionnées',
+    controls: {
+      yourBudget: 'Votre Budget:',
+      includeRefurbished: 'Inclure les modèles reconditionnés',
+      showFinancing: 'Afficher les options de financement',
+      financingPeriod: 'Période de Financement: {months} mois',
+      months: '{n} mois',
+    },
+    results: {
+      found: '{count} modèles Mac trouvés dans votre budget de ${budget}',
+      includingRefurb: '(y compris reconditionnés)',
+      refurbishedOnly: 'Reconditionné Uniquement',
+      chip: 'Puce:',
+      memory: 'Mémoire:',
+      display: 'Écran:',
+      save: 'Économisez ${amount} avec reconditionné!',
+      refurbPrice: 'Recond.: ${price}',
+      buyNew: 'Acheter Neuf - ${price}',
+      buyRefurbished: 'Acheter Reconditionné - ${price}',
+      monthlyPayment: '${amount}/mois pendant {months} mois',
+    },
+    emptyState: {
+      title: 'Aucune Mac trouvée dans votre budget. Essayez d\'augmenter votre budget.',
+      subtitle: 'La Mac la plus abordable commence à 599$ (Mac mini M4)',
+    },
+    info: {
+      title: 'À Propos des Macs Reconditionnées',
+      question: 'Qu\'est-ce qu\'une Mac reconditionnée?',
+      answer: 'Les produits Apple Certifiés Reconditionnés sont des produits Apple d\'occasion qui ont été rigoureusement testés et certifiés par Apple.',
+      benefits: {
+        warranty: 'Garantie Apple complète (1 an)',
+        condition: 'État comme neuf avec nouvelle coque extérieure',
+        tested: 'Rigoureusement testé et certifié',
+        applecare: 'Éligible à AppleCare+',
+        savings: 'Économisez 15-30% du prix de détail',
+      },
+    },
+    disclosure: {
+      title: 'Divulgation:',
+      text: 'Nous gagnons des commissions sur les achats qualifiés via des liens d\'affiliation. Les prix indiqués sont approximatifs et peuvent varier.',
+    },
+  },
+
+  // Compare
+  compare: {
+    title: 'Comparer les Modèles Mac',
+    subtitle: 'Sélectionnez jusqu\'à 3 modèles Mac à comparer côte à côte',
+    filters: {
+      all: 'Tous les Macs',
+      laptops: 'Portables',
+      desktops: 'Ordinateurs de Bureau',
+    },
+    selected: '{count} modèles sélectionnés sur 3',
+    clearAll: 'Tout effacer',
+    emptyState: 'Sélectionnez des modèles Mac ci-dessus pour commencer la comparaison',
+    table: {
+      specification: 'Spécification',
+      startingPrice: 'Prix de Départ',
+      refurb: 'Recond.:',
+      chip: 'Puce',
+      cpuGpu: 'CPU {cpu} cœurs, GPU {gpu} cœurs',
+      memoryOptions: 'Options de Mémoire',
+      storageOptions: 'Options de Stockage',
+      display: 'Écran',
+      noDisplay: 'Pas d\'écran intégré',
+      batteryLife: 'Autonomie de la Batterie',
+      upToHours: 'Jusqu\'à {hours} heures',
+      weight: 'Poids',
+      ports: 'Ports',
+      thunderbolt: 'Thunderbolt',
+      usbA: 'USB-A',
+      hdmi: 'HDMI',
+      sdCard: 'Carte SD',
+      ethernet: 'Ethernet',
+      bestFor: 'Idéal Pour',
+      buyNow: 'Acheter Maintenant',
+      apple: 'Apple',
+      amazon: 'Amazon',
+    },
+  },
+
+  // Learn
+  learn: {
+    title: 'Comprendre les Spécifications Mac',
+    subtitle: 'Tout ce que vous devez savoir pour prendre une décision éclairée',
+    toc: {
+      title: 'Navigation Rapide',
+      chips: 'Puces Apple Silicon (Série M)',
+      memory: 'Mémoire Unifiée (RAM)',
+      storage: 'Options de Stockage',
+      displays: 'Technologie d\'Affichage',
+      ports: 'Ports et Connectivité',
+      choosing: 'Choisir la Bonne Mac',
+    },
+    cta: {
+      title: 'Prêt à Trouver Votre Mac Parfaite?',
+      subtitle: 'Répondez à notre quiz interactif pour obtenir des recommandations personnalisées',
+      button: 'Commencer le Quiz',
+    },
+  },
+
   // Common
   common: {
     loading: 'Chargement...',

@@ -3,8 +3,11 @@
 import { useState } from 'react';
 import { macProducts, getMacsByBudget } from '@/data/macs';
 import Link from 'next/link';
+import { useLanguage } from '@/contexts/LanguageContext';
+import LanguageSelector from '@/components/LanguageSelector';
 
 export default function BudgetPage() {
+  const { t } = useLanguage();
   const [budget, setBudget] = useState(2000);
   const [includeRefurbished, setIncludeRefurbished] = useState(true);
   const [financingMonths, setFinancingMonths] = useState(12);
@@ -31,11 +34,14 @@ export default function BudgetPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16 items-center">
             <Link href="/" className="text-2xl font-bold text-gray-900 dark:text-white">
-              Mac Finder
+              {t.nav.title}
             </Link>
-            <Link href="/" className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
-              ← Back to Home
-            </Link>
+            <div className="flex items-center gap-4">
+              <Link href="/" className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
+                ← {t.nav.backToHome}
+              </Link>
+              <LanguageSelector />
+            </div>
           </div>
         </div>
       </nav>
@@ -43,10 +49,10 @@ export default function BudgetPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            Budget Calculator
+            {t.budget.title}
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-400">
-            Find the best Mac within your budget, including refurbished options
+            {t.budget.subtitle}
           </p>
         </div>
 
@@ -56,7 +62,7 @@ export default function BudgetPage() {
             {/* Budget Slider */}
             <div>
               <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                Your Budget: <span className="text-2xl font-bold text-blue-600 dark:text-blue-400">${budget.toLocaleString()}</span>
+                {t.budget.controls.yourBudget} <span className="text-2xl font-bold text-blue-600 dark:text-blue-400">${budget.toLocaleString()}</span>
               </label>
               <input
                 type="range"
@@ -83,7 +89,7 @@ export default function BudgetPage() {
                   className="w-4 h-4 text-blue-600 bg-gray-100 dark:bg-gray-700 border-gray-300 dark:border-gray-600 rounded focus:ring-blue-500"
                 />
                 <span className="ml-2 text-sm text-gray-700 dark:text-gray-300">
-                  Include refurbished models
+                  {t.budget.controls.includeRefurbished}
                 </span>
               </label>
 
@@ -95,7 +101,7 @@ export default function BudgetPage() {
                   className="w-4 h-4 text-blue-600 bg-gray-100 dark:bg-gray-700 border-gray-300 dark:border-gray-600 rounded focus:ring-blue-500"
                 />
                 <span className="ml-2 text-sm text-gray-700 dark:text-gray-300">
-                  Show financing options
+                  {t.budget.controls.showFinancing}
                 </span>
               </label>
             </div>
@@ -104,17 +110,17 @@ export default function BudgetPage() {
             {showFinancing && (
               <div>
                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                  Financing Period: {financingMonths} months
+                  {t.budget.controls.financingPeriod.replace('{months}', financingMonths.toString())}
                 </label>
                 <select
                   value={financingMonths}
                   onChange={(e) => setFinancingMonths(Number(e.target.value))}
                   className="w-full px-4 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white"
                 >
-                  <option value="6">6 months</option>
-                  <option value="12">12 months</option>
-                  <option value="18">18 months</option>
-                  <option value="24">24 months</option>
+                  <option value="6">{t.budget.controls.months.replace('{n}', '6')}</option>
+                  <option value="12">{t.budget.controls.months.replace('{n}', '12')}</option>
+                  <option value="18">{t.budget.controls.months.replace('{n}', '18')}</option>
+                  <option value="24">{t.budget.controls.months.replace('{n}', '24')}</option>
                 </select>
               </div>
             )}
@@ -124,8 +130,10 @@ export default function BudgetPage() {
         {/* Results Summary */}
         <div className="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-xl mb-8">
           <p className="text-center text-lg text-gray-900 dark:text-white">
-            Found <strong>{macsWithRefurb.length} Mac models</strong> within your ${budget.toLocaleString()} budget
-            {includeRefurbished && ' (including refurbished)'}
+            {t.budget.results.found
+              .replace('{count}', macsWithRefurb.length.toString())
+              .replace('{budget}', budget.toLocaleString())}
+            {includeRefurbished && ' ' + t.budget.results.includingRefurb}
           </p>
         </div>
 
@@ -141,7 +149,7 @@ export default function BudgetPage() {
               <div key={mac.id} className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6">
                 {isRefurb && (
                   <div className="inline-block bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 px-3 py-1 rounded-full text-xs font-semibold mb-3">
-                    Refurbished Only
+                    {t.budget.results.refurbishedOnly}
                   </div>
                 )}
 
@@ -155,25 +163,27 @@ export default function BudgetPage() {
                   </div>
                   {showFinancing && (
                     <div className="text-sm text-gray-600 dark:text-gray-400">
-                      ${calculateMonthlyPayment(displayPrice)}/month for {financingMonths} months
+                      {t.budget.results.monthlyPayment
+                        .replace('{amount}', calculateMonthlyPayment(displayPrice))
+                        .replace('{months}', financingMonths.toString())}
                     </div>
                   )}
                 </div>
 
                 <div className="space-y-2 mb-4">
                   <div className="flex justify-between text-sm">
-                    <span className="text-gray-600 dark:text-gray-400">Chip:</span>
+                    <span className="text-gray-600 dark:text-gray-400">{t.budget.results.chip}</span>
                     <span className="font-semibold text-gray-900 dark:text-white">{mac.chip}</span>
                   </div>
                   <div className="flex justify-between text-sm">
-                    <span className="text-gray-600 dark:text-gray-400">Memory:</span>
+                    <span className="text-gray-600 dark:text-gray-400">{t.budget.results.memory}</span>
                     <span className="font-semibold text-gray-900 dark:text-white">
                       {mac.memory[0]}GB - {mac.memory[mac.memory.length - 1]}GB
                     </span>
                   </div>
                   {mac.display && (
                     <div className="flex justify-between text-sm">
-                      <span className="text-gray-600 dark:text-gray-400">Display:</span>
+                      <span className="text-gray-600 dark:text-gray-400">{t.budget.results.display}</span>
                       <span className="font-semibold text-gray-900 dark:text-white">
                         {mac.display.size}"
                       </span>
@@ -184,10 +194,10 @@ export default function BudgetPage() {
                 {isNewAffordable && mac.refurbishedAvailable && mac.refurbishedPrice && (
                   <div className="bg-green-50 dark:bg-green-900/20 p-3 rounded-lg mb-4">
                     <p className="text-sm text-green-800 dark:text-green-300 font-semibold">
-                      Save ${(mac.price.base - mac.refurbishedPrice).toLocaleString()} with refurbished!
+                      {t.budget.results.save.replace('{amount}', (mac.price.base - mac.refurbishedPrice).toLocaleString())}
                     </p>
                     <p className="text-xs text-green-700 dark:text-green-400 mt-1">
-                      Refurb: ${mac.refurbishedPrice.toLocaleString()}
+                      {t.budget.results.refurbPrice.replace('{price}', mac.refurbishedPrice.toLocaleString())}
                     </p>
                   </div>
                 )}
@@ -200,7 +210,7 @@ export default function BudgetPage() {
                       rel="noopener noreferrer"
                       className="block w-full bg-blue-600 text-white text-center px-4 py-2 rounded-lg font-semibold hover:bg-blue-700 transition"
                     >
-                      Buy New - ${mac.price.base.toLocaleString()}
+                      {t.budget.results.buyNew.replace('{price}', mac.price.base.toLocaleString())}
                     </a>
                   )}
                   {mac.refurbishedAvailable && mac.refurbishedPrice && mac.refurbishedPrice <= budget && (
@@ -210,7 +220,7 @@ export default function BudgetPage() {
                       rel="noopener noreferrer"
                       className="block w-full bg-green-600 text-white text-center px-4 py-2 rounded-lg font-semibold hover:bg-green-700 transition"
                     >
-                      Buy Refurbished - ${mac.refurbishedPrice.toLocaleString()}
+                      {t.budget.results.buyRefurbished.replace('{price}', mac.refurbishedPrice.toLocaleString())}
                     </a>
                   )}
                 </div>
@@ -222,10 +232,10 @@ export default function BudgetPage() {
         {macsWithRefurb.length === 0 && (
           <div className="text-center py-12">
             <p className="text-xl text-gray-600 dark:text-gray-400 mb-4">
-              No Macs found within your budget. Try increasing your budget.
+              {t.budget.emptyState.title}
             </p>
             <p className="text-gray-500 dark:text-gray-500">
-              The most affordable Mac starts at $599 (Mac mini M4)
+              {t.budget.emptyState.subtitle}
             </p>
           </div>
         )}
@@ -233,18 +243,18 @@ export default function BudgetPage() {
         {/* Info Box */}
         <div className="mt-12 bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6">
           <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
-            About Refurbished Macs
+            {t.budget.info.title}
           </h3>
           <div className="space-y-3 text-gray-700 dark:text-gray-300">
             <p>
-              <strong>What is a refurbished Mac?</strong> Apple Certified Refurbished products are pre-owned Apple products that have been thoroughly tested and certified by Apple.
+              <strong>{t.budget.info.question}</strong> {t.budget.info.answer}
             </p>
             <ul className="list-disc list-inside space-y-2 ml-4">
-              <li>Full Apple warranty (1 year)</li>
-              <li>Like-new condition with new outer shell</li>
-              <li>Thoroughly tested and certified</li>
-              <li>Eligible for AppleCare+</li>
-              <li>Save 15-30% off retail price</li>
+              <li>{t.budget.info.benefits.warranty}</li>
+              <li>{t.budget.info.benefits.condition}</li>
+              <li>{t.budget.info.benefits.tested}</li>
+              <li>{t.budget.info.benefits.applecare}</li>
+              <li>{t.budget.info.benefits.savings}</li>
             </ul>
           </div>
         </div>
@@ -252,8 +262,7 @@ export default function BudgetPage() {
         {/* Affiliate Disclosure */}
         <div className="mt-8 bg-gray-100 dark:bg-gray-800 p-4 rounded-lg">
           <p className="text-sm text-gray-600 dark:text-gray-400 text-center">
-            <strong>Disclosure:</strong> We earn commissions from qualifying purchases through affiliate links.
-            Prices shown are approximate and may vary.
+            <strong>{t.budget.disclosure.title}</strong> {t.budget.disclosure.text}
           </p>
         </div>
       </div>

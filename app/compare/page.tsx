@@ -3,8 +3,11 @@
 import { useState } from 'react';
 import { macProducts, type MacProduct } from '@/data/macs';
 import Link from 'next/link';
+import { useLanguage } from '@/contexts/LanguageContext';
+import LanguageSelector from '@/components/LanguageSelector';
 
 export default function ComparePage() {
+  const { t } = useLanguage();
   const [selectedMacs, setSelectedMacs] = useState<string[]>([]);
   const [filterCategory, setFilterCategory] = useState<'all' | 'laptop' | 'desktop'>('all');
 
@@ -31,11 +34,14 @@ export default function ComparePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16 items-center">
             <Link href="/" className="text-2xl font-bold text-gray-900 dark:text-white">
-              Mac Finder
+              {t.nav.title}
             </Link>
-            <Link href="/" className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
-              ← Back to Home
-            </Link>
+            <div className="flex items-center gap-4">
+              <Link href="/" className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
+                ← {t.nav.backToHome}
+              </Link>
+              <LanguageSelector />
+            </div>
           </div>
         </div>
       </nav>
@@ -43,10 +49,10 @@ export default function ComparePage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            Compare Mac Models
+            {t.compare.title}
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-400">
-            Select up to 3 Mac models to compare side-by-side
+            {t.compare.subtitle}
           </p>
         </div>
 
@@ -60,7 +66,7 @@ export default function ComparePage() {
                 : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600'
             }`}
           >
-            All Macs
+            {t.compare.filters.all}
           </button>
           <button
             onClick={() => setFilterCategory('laptop')}
@@ -70,7 +76,7 @@ export default function ComparePage() {
                 : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600'
             }`}
           >
-            Laptops
+            {t.compare.filters.laptops}
           </button>
           <button
             onClick={() => setFilterCategory('desktop')}
@@ -80,7 +86,7 @@ export default function ComparePage() {
                 : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600'
             }`}
           >
-            Desktops
+            {t.compare.filters.desktops}
           </button>
         </div>
 
@@ -88,13 +94,13 @@ export default function ComparePage() {
         {selectedMacs.length > 0 && (
           <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg mb-6 text-center">
             <p className="text-blue-900 dark:text-blue-200">
-              {selectedMacs.length} of 3 models selected
+              {t.compare.selected.replace('{count}', selectedMacs.length.toString())}
               {selectedMacs.length > 0 && (
                 <button
                   onClick={() => setSelectedMacs([])}
                   className="ml-4 text-blue-600 dark:text-blue-400 hover:underline"
                 >
-                  Clear all
+                  {t.compare.clearAll}
                 </button>
               )}
             </p>
@@ -135,7 +141,7 @@ export default function ComparePage() {
                 <thead className="bg-gray-50 dark:bg-gray-900">
                   <tr>
                     <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900 dark:text-white">
-                      Specification
+                      {t.compare.table.specification}
                     </th>
                     {selectedProducts.map(mac => (
                       <th key={mac.id} className="px-6 py-4 text-left">
@@ -153,7 +159,7 @@ export default function ComparePage() {
                   {/* Price */}
                   <tr>
                     <td className="px-6 py-4 text-sm font-medium text-gray-900 dark:text-white">
-                      Starting Price
+                      {t.compare.table.startingPrice}
                     </td>
                     {selectedProducts.map(mac => (
                       <td key={mac.id} className="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">
@@ -162,7 +168,7 @@ export default function ComparePage() {
                         </span>
                         {mac.refurbishedAvailable && mac.refurbishedPrice && (
                           <div className="text-xs text-green-600 dark:text-green-400 mt-1">
-                            Refurb: ${mac.refurbishedPrice.toLocaleString()}
+                            {t.compare.table.refurb} ${mac.refurbishedPrice.toLocaleString()}
                           </div>
                         )}
                       </td>
@@ -172,13 +178,13 @@ export default function ComparePage() {
                   {/* Chip */}
                   <tr>
                     <td className="px-6 py-4 text-sm font-medium text-gray-900 dark:text-white">
-                      Chip
+                      {t.compare.table.chip}
                     </td>
                     {selectedProducts.map(mac => (
                       <td key={mac.id} className="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">
                         {mac.chip}
                         <div className="text-xs text-gray-500 dark:text-gray-400 mt-1">
-                          {mac.chipCores.cpu}-core CPU, {mac.chipCores.gpu}-core GPU
+                          {t.compare.table.cpuGpu.replace('{cpu}', mac.chipCores.cpu.toString()).replace('{gpu}', mac.chipCores.gpu.toString())}
                         </div>
                       </td>
                     ))}
@@ -187,7 +193,7 @@ export default function ComparePage() {
                   {/* Memory */}
                   <tr>
                     <td className="px-6 py-4 text-sm font-medium text-gray-900 dark:text-white">
-                      Memory Options
+                      {t.compare.table.memoryOptions}
                     </td>
                     {selectedProducts.map(mac => (
                       <td key={mac.id} className="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">
@@ -199,7 +205,7 @@ export default function ComparePage() {
                   {/* Storage */}
                   <tr>
                     <td className="px-6 py-4 text-sm font-medium text-gray-900 dark:text-white">
-                      Storage Options
+                      {t.compare.table.storageOptions}
                     </td>
                     {selectedProducts.map(mac => (
                       <td key={mac.id} className="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">
@@ -211,7 +217,7 @@ export default function ComparePage() {
                   {/* Display */}
                   <tr>
                     <td className="px-6 py-4 text-sm font-medium text-gray-900 dark:text-white">
-                      Display
+                      {t.compare.table.display}
                     </td>
                     {selectedProducts.map(mac => (
                       <td key={mac.id} className="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">
@@ -223,7 +229,7 @@ export default function ComparePage() {
                             </div>
                           </>
                         ) : (
-                          'No built-in display'
+                          t.compare.table.noDisplay
                         )}
                       </td>
                     ))}
@@ -233,11 +239,11 @@ export default function ComparePage() {
                   {selectedProducts.some(mac => mac.batteryLife) && (
                     <tr>
                       <td className="px-6 py-4 text-sm font-medium text-gray-900 dark:text-white">
-                        Battery Life
+                        {t.compare.table.batteryLife}
                       </td>
                       {selectedProducts.map(mac => (
                         <td key={mac.id} className="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">
-                          {mac.batteryLife ? `Up to ${mac.batteryLife} hours` : 'N/A'}
+                          {mac.batteryLife ? t.compare.table.upToHours.replace('{hours}', mac.batteryLife.toString()) : 'N/A'}
                         </td>
                       ))}
                     </tr>
@@ -247,7 +253,7 @@ export default function ComparePage() {
                   {selectedProducts.some(mac => mac.weight) && (
                     <tr>
                       <td className="px-6 py-4 text-sm font-medium text-gray-900 dark:text-white">
-                        Weight
+                        {t.compare.table.weight}
                       </td>
                       {selectedProducts.map(mac => (
                         <td key={mac.id} className="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">
@@ -260,16 +266,16 @@ export default function ComparePage() {
                   {/* Ports */}
                   <tr>
                     <td className="px-6 py-4 text-sm font-medium text-gray-900 dark:text-white">
-                      Ports
+                      {t.compare.table.ports}
                     </td>
                     {selectedProducts.map(mac => (
                       <td key={mac.id} className="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">
                         <ul className="space-y-1">
-                          <li>• {mac.ports.thunderbolt} Thunderbolt</li>
-                          {mac.ports.usb > 0 && <li>• {mac.ports.usb} USB-A</li>}
-                          {mac.ports.hdmi && <li>• HDMI</li>}
-                          {mac.ports.sdCard && <li>• SD Card</li>}
-                          {mac.ports.ethernet && <li>• Ethernet</li>}
+                          <li>• {mac.ports.thunderbolt} {t.compare.table.thunderbolt}</li>
+                          {mac.ports.usb > 0 && <li>• {mac.ports.usb} {t.compare.table.usbA}</li>}
+                          {mac.ports.hdmi && <li>• {t.compare.table.hdmi}</li>}
+                          {mac.ports.sdCard && <li>• {t.compare.table.sdCard}</li>}
+                          {mac.ports.ethernet && <li>• {t.compare.table.ethernet}</li>}
                         </ul>
                       </td>
                     ))}
@@ -278,7 +284,7 @@ export default function ComparePage() {
                   {/* Best For */}
                   <tr>
                     <td className="px-6 py-4 text-sm font-medium text-gray-900 dark:text-white">
-                      Best For
+                      {t.compare.table.bestFor}
                     </td>
                     {selectedProducts.map(mac => (
                       <td key={mac.id} className="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">
@@ -290,7 +296,7 @@ export default function ComparePage() {
                   {/* Buy Links */}
                   <tr>
                     <td className="px-6 py-4 text-sm font-medium text-gray-900 dark:text-white">
-                      Buy Now
+                      {t.compare.table.buyNow}
                     </td>
                     {selectedProducts.map(mac => (
                       <td key={mac.id} className="px-6 py-4">
@@ -301,7 +307,7 @@ export default function ComparePage() {
                             rel="noopener noreferrer"
                             className="block text-center bg-blue-600 text-white px-3 py-2 rounded text-sm font-semibold hover:bg-blue-700 transition"
                           >
-                            Apple
+                            {t.compare.table.apple}
                           </a>
                           {mac.affiliateLinks.amazon && (
                             <a
@@ -310,7 +316,7 @@ export default function ComparePage() {
                               rel="noopener noreferrer"
                               className="block text-center bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-white px-3 py-2 rounded text-sm font-semibold hover:bg-gray-300 dark:hover:bg-gray-600 transition"
                             >
-                              Amazon
+                              {t.compare.table.amazon}
                             </a>
                           )}
                         </div>
@@ -325,7 +331,7 @@ export default function ComparePage() {
 
         {selectedProducts.length === 0 && (
           <div className="text-center py-12 text-gray-500 dark:text-gray-400">
-            Select Mac models above to start comparing
+            {t.compare.emptyState}
           </div>
         )}
       </div>
