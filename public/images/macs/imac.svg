@@ -1,15 +1,34 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 500">
   <defs>
-    <linearGradient id="imacGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#EC4899;stop-opacity:1" />
-      <stop offset="50%" style="stop-color:#8B5CF6;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#3B82F6;stop-opacity:1" />
+    <linearGradient id="imacBody" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ec4899;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#a855f7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="imacScreen" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1f2937;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#111827;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="imacStand" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#d1d5db;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#9ca3af;stop-opacity:1" />
     </linearGradient>
   </defs>
-  <rect width="400" height="300" fill="#FDF2F8"/>
-  <rect x="60" y="30" width="280" height="190" rx="20" fill="url(#imacGrad)"/>
-  <rect x="75" y="45" width="250" height="150" fill="#1F2937"/>
-  <rect x="180" y="220" width="40" height="30" fill="#D1D5DB"/>
-  <ellipse cx="200" cy="250" rx="60" ry="10" fill="#D1D5DB"/>
-  <text x="200" y="285" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#BE185D" text-anchor="middle">iMac</text>
+  
+  <!-- Shadow -->
+  <ellipse cx="300" cy="480" rx="200" ry="15" fill="#000" opacity="0.2"/>
+  
+  <!-- Display -->
+  <rect x="80" y="50" width="440" height="330" rx="25" fill="url(#imacBody)"/>
+  <rect x="100" y="70" width="400" height="290" rx="15" fill="url(#imacScreen)"/>
+  
+  <!-- Camera -->
+  <circle cx="300" cy="85" r="5" fill="#374151"/>
+  
+  <!-- Stand -->
+  <rect x="280" y="380" width="40" height="60" rx="5" fill="url(#imacStand)"/>
+  <ellipse cx="300" cy="465" rx="80" ry="15" fill="url(#imacStand)"/>
+  
+  <!-- Chin logo area -->
+  <rect x="100" y="360" width="400" height="20" fill="url(#imacBody)" opacity="0.3"/>
 </svg>

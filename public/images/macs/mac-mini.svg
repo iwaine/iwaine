@@ -1,13 +1,38 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400">
   <defs>
-    <linearGradient id="miniGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#D1D5DB;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#9CA3AF;stop-opacity:1" />
+    <linearGradient id="miniTop" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#e5e7eb;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d1d5db;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="miniSide" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#d1d5db;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#9ca3af;stop-opacity:1" />
     </linearGradient>
   </defs>
-  <rect width="400" height="300" fill="#F9FAFB"/>
-  <rect x="100" y="100" width="200" height="80" rx="10" fill="url(#miniGrad)"/>
-  <circle cx="130" cy="140" r="5" fill="#6B7280"/>
-  <circle cx="150" cy="140" r="5" fill="#6B7280"/>
-  <text x="200" y="240" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#4B5563" text-anchor="middle">Mac mini</text>
+  
+  <!-- Shadow -->
+  <ellipse cx="300" cy="350" rx="180" ry="15" fill="#000" opacity="0.25"/>
+  
+  <!-- Body perspective -->
+  <rect x="140" y="180" width="320" height="120" rx="15" fill="url(#miniTop)"/>
+  <path d="M 140 300 L 460 300 L 450 310 L 150 310 Z" fill="url(#miniSide)"/>
+  
+  <!-- Front ports -->
+  <circle cx="190" cy="240" r="6" fill="#6b7280"/>
+  <circle cx="215" cy="240" r="6" fill="#6b7280"/>
+  <rect x="240" y="235" width="30" height="10" rx="5" fill="#6b7280"/>
+  
+  <!-- Apple logo -->
+  <circle cx="300" cy="240" r="20" fill="#9ca3af" opacity="0.3"/>
+  
+  <!-- Ventilation dots -->
+  <circle cx="380" cy="220" r="2" fill="#9ca3af"/>
+  <circle cx="400" cy="220" r="2" fill="#9ca3af"/>
+  <circle cx="420" cy="220" r="2" fill="#9ca3af"/>
+  <circle cx="380" cy="240" r="2" fill="#9ca3af"/>
+  <circle cx="400" cy="240" r="2" fill="#9ca3af"/>
+  <circle cx="420" cy="240" r="2" fill="#9ca3af"/>
+  <circle cx="380" cy="260" r="2" fill="#9ca3af"/>
+  <circle cx="400" cy="260" r="2" fill="#9ca3af"/>
+  <circle cx="420" cy="260" r="2" fill="#9ca3af"/>
 </svg>

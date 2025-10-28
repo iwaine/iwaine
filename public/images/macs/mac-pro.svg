@@ -1,15 +1,34 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 500">
   <defs>
-    <linearGradient id="proGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#4B5563;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#1F2937;stop-opacity:1" />
+    <linearGradient id="proTower" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#4b5563;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1f2937;stop-opacity:1" />
     </linearGradient>
+    <pattern id="holes" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="10" cy="10" r="3" fill="#6b7280"/>
+    </pattern>
   </defs>
-  <rect width="400" height="300" fill="#F9FAFB"/>
-  <rect x="80" y="50" width="240" height="180" rx="20" fill="url(#proGradient)"/>
-  <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
-    <circle cx="10" cy="10" r="2" fill="#6B7280"/>
-  </pattern>
-  <rect x="90" y="60" width="220" height="160" fill="url(#grid)"/>
-  <text x="200" y="270" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#1F2937" text-anchor="middle">Mac Pro</text>
+  
+  <!-- Shadow -->
+  <ellipse cx="300" cy="480" rx="150" ry="15" fill="#000" opacity="0.3"/>
+  
+  <!-- Tower body -->
+  <rect x="180" y="50" width="240" height="400" rx="15" fill="url(#proTower)"/>
+  
+  <!-- Cheese grater pattern -->
+  <rect x="195" y="80" width="210" height="340" fill="url(#holes)" opacity="0.4"/>
+  
+  <!-- Top handle -->
+  <rect x="260" y="50" width="80" height="15" rx="7" fill="#374151"/>
+  <rect x="270" y="45" width="60" height="10" rx="5" fill="#1f2937"/>
+  
+  <!-- Front panel -->
+  <rect x="195" y="420" width="210" height="20" rx="5" fill="#374151"/>
+  
+  <!-- Power button -->
+  <circle cx="300" cy="430" r="5" fill="#60a5fa"/>
+  
+  <!-- Ports indication -->
+  <rect x="210" y="425" width="15" height="8" rx="2" fill="#4b5563"/>
+  <rect x="235" cy="425" width="15" height="8" rx="2" fill="#4b5563"/>
 </svg>
