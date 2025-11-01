@@ -1,34 +1,99 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 500">
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="800" fill="url(#bg-gradient)"/>
+
   <defs>
-    <linearGradient id="imacBody" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#ec4899;stop-opacity:1" />
-      <stop offset="50%" style="stop-color:#a855f7;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
+    <linearGradient id="bg-gradient" x1="0" y1="0" x2="0" y2="800" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#f0f0f2"/>
     </linearGradient>
-    <linearGradient id="imacScreen" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#1f2937;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#111827;stop-opacity:1" />
+
+    <linearGradient id="imac-body" x1="600" y1="100" x2="600" y2="700" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#e0e0e5"/>
+      <stop offset="50%" stop-color="#c8c8cd"/>
+      <stop offset="100%" stop-color="#b0b0b5"/>
     </linearGradient>
-    <linearGradient id="imacStand" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#d1d5db;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#9ca3af;stop-opacity:1" />
+
+    <linearGradient id="screen-imac" x1="250" y1="120" x2="950" y2="580" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#000000"/>
+      <stop offset="100%" stop-color="#1a1a1c"/>
     </linearGradient>
+
+    <radialGradient id="screen-glow-imac" cx="600" cy="340" r="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#5e5ce6" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#5e5ce6" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="shadow-imac" cx="600" cy="720" r="350" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#000000" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
   </defs>
-  
+
   <!-- Shadow -->
-  <ellipse cx="300" cy="480" rx="200" ry="15" fill="#000" opacity="0.2"/>
-  
-  <!-- Display -->
-  <rect x="80" y="50" width="440" height="330" rx="25" fill="url(#imacBody)"/>
-  <rect x="100" y="70" width="400" height="290" rx="15" fill="url(#imacScreen)"/>
-  
-  <!-- Camera -->
-  <circle cx="300" cy="85" r="5" fill="#374151"/>
-  
+  <ellipse cx="600" cy="720" rx="400" ry="60" fill="url(#shadow-imac)"/>
+
   <!-- Stand -->
-  <rect x="280" y="380" width="40" height="60" rx="5" fill="url(#imacStand)"/>
-  <ellipse cx="300" cy="465" rx="80" ry="15" fill="url(#imacStand)"/>
-  
-  <!-- Chin logo area -->
-  <rect x="100" y="360" width="400" height="20" fill="url(#imacBody)" opacity="0.3"/>
+  <rect x="570" y="600" width="60" height="100" rx="30" fill="url(#imac-body)"/>
+  <ellipse cx="600" cy="700" rx="120" ry="20" fill="url(#imac-body)"/>
+
+  <!-- iMac Body/Chin -->
+  <path d="M 200 580 Q 200 600 220 600 L 980 600 Q 1000 600 1000 580 L 1000 140 Q 1000 120 980 120 L 220 120 Q 200 120 200 140 Z"
+        fill="url(#imac-body)" stroke="#a0a0a5" stroke-width="3"/>
+
+  <!-- Screen Bezel -->
+  <rect x="230" y="140" width="740" height="440" rx="12" fill="#0a0a0c" stroke="#2c2c2e" stroke-width="2"/>
+
+  <!-- Screen Display (Retina 4.5K) -->
+  <rect x="245" y="155" width="710" height="410" rx="8" fill="url(#screen-imac)"/>
+
+  <!-- Screen Glow -->
+  <rect x="245" y="155" width="710" height="410" rx="8" fill="url(#screen-glow-imac)"/>
+
+  <!-- Screen Content - macOS Desktop -->
+  <g opacity="0.75">
+    <!-- Menu bar -->
+    <rect x="255" y="165" width="690" height="24" fill="#1c1c1e" opacity="0.9"/>
+    <circle cx="272" cy="177" r="4" fill="#ff5f57"/>
+    <circle cx="291" cy="177" r="4" fill="#febc2e"/>
+    <circle cx="310" cy="177" r="4" fill="#28c840"/>
+
+    <!-- Finder icon area -->
+    <text x="330" y="182" font-family="SF Pro Display, -apple-system, sans-serif" font-size="14" font-weight="500" fill="#f5f5f7">
+      Finder
+    </text>
+
+    <!-- Desktop Wallpaper Effect (gradient) -->
+    <rect x="255" y="195" width="690" height="360" rx="6" fill="url(#wallpaper-gradient)"/>
+    <defs>
+      <linearGradient id="wallpaper-gradient" x1="255" y1="195" x2="945" y2="555" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stop-color="#5e5ce6" stop-opacity="0.3"/>
+        <stop offset="50%" stop-color="#bf5af2" stop-opacity="0.2"/>
+        <stop offset="100%" stop-color="#ff375f" stop-opacity="0.3"/>
+      </linearGradient>
+    </defs>
+
+    <!-- Dock -->
+    <rect x="450" y="530" width="300" height="26" rx="13" fill="#1c1c1e" opacity="0.85"/>
+    <rect x="465" y="535" width="16" height="16" rx="4" fill="#0a84ff"/>
+    <rect x="488" y="535" width="16" height="16" rx="4" fill="#30d158"/>
+    <rect x="511" y="535" width="16" height="16" rx="4" fill="#ff9f0a"/>
+    <rect x="534" y="535" width="16" height="16" rx="4" fill="#ff375f"/>
+    <rect x="557" y="535" width="16" height="16" rx="4" fill="#bf5af2"/>
+    <rect x="580" y="535" width="16" height="16" rx="4" fill="#64d2ff"/>
+  </g>
+
+  <!-- Apple Logo on chin -->
+  <g transform="translate(600, 590)">
+    <path d="M 6 -12 Q 12 -12 12 -6 Q 12 0 8 4 Q 12 8 8 12 Q 0 12 -4 8 Q -8 12 -12 8 Q -8 4 -8 -4 Q -8 -12 0 -12 Q 4 -8 6 -12 Z"
+          fill="#86868b" opacity="0.6"/>
+  </g>
+
+  <!-- Product name -->
+  <text x="600" y="760" font-family="SF Pro Display, -apple-system, system-ui, sans-serif" font-size="34" font-weight="700" fill="#1d1d1f" text-anchor="middle">
+    iMac
+  </text>
+  <text x="600" y="790" font-family="SF Pro Display, -apple-system, system-ui, sans-serif" font-size="18" font-weight="400" fill="#6e6e73" text-anchor="middle">
+    Brilliant. In every light.
+  </text>
 </svg>

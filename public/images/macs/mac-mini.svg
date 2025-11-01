@@ -1,38 +1,73 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400">
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="800" fill="url(#bg-gradient)"/>
+
   <defs>
-    <linearGradient id="miniTop" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#e5e7eb;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#d1d5db;stop-opacity:1" />
+    <linearGradient id="bg-gradient" x1="0" y1="0" x2="0" y2="800" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#f5f5f7"/>
+      <stop offset="100%" stop-color="#e5e5e7"/>
     </linearGradient>
-    <linearGradient id="miniSide" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#d1d5db;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#9ca3af;stop-opacity:1" />
+
+    <linearGradient id="mini-body" x1="400" y1="300" x2="800" y2="550" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#d1d1d6"/>
+      <stop offset="50%" stop-color="#c7c7cc"/>
+      <stop offset="100%" stop-color="#aeaeb2"/>
     </linearGradient>
+
+    <linearGradient id="mini-top" x1="400" y1="300" x2="800" y2="320" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#e8e8ed"/>
+      <stop offset="100%" stop-color="#d1d1d6"/>
+    </linearGradient>
+
+    <radialGradient id="shadow-mini" cx="600" cy="570" r="250" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#000000" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
   </defs>
-  
+
   <!-- Shadow -->
-  <ellipse cx="300" cy="350" rx="180" ry="15" fill="#000" opacity="0.25"/>
-  
-  <!-- Body perspective -->
-  <rect x="140" y="180" width="320" height="120" rx="15" fill="url(#miniTop)"/>
-  <path d="M 140 300 L 460 300 L 450 310 L 150 310 Z" fill="url(#miniSide)"/>
-  
-  <!-- Front ports -->
-  <circle cx="190" cy="240" r="6" fill="#6b7280"/>
-  <circle cx="215" cy="240" r="6" fill="#6b7280"/>
-  <rect x="240" y="235" width="30" height="10" rx="5" fill="#6b7280"/>
-  
-  <!-- Apple logo -->
-  <circle cx="300" cy="240" r="20" fill="#9ca3af" opacity="0.3"/>
-  
-  <!-- Ventilation dots -->
-  <circle cx="380" cy="220" r="2" fill="#9ca3af"/>
-  <circle cx="400" cy="220" r="2" fill="#9ca3af"/>
-  <circle cx="420" cy="220" r="2" fill="#9ca3af"/>
-  <circle cx="380" cy="240" r="2" fill="#9ca3af"/>
-  <circle cx="400" cy="240" r="2" fill="#9ca3af"/>
-  <circle cx="420" cy="240" r="2" fill="#9ca3af"/>
-  <circle cx="380" cy="260" r="2" fill="#9ca3af"/>
-  <circle cx="400" cy="260" r="2" fill="#9ca3af"/>
-  <circle cx="420" cy="260" r="2" fill="#9ca3af"/>
+  <ellipse cx="600" cy="570" rx="280" ry="50" fill="url(#shadow-mini)"/>
+
+  <!-- Mac mini body - main box -->
+  <rect x="400" y="320" width="400" height="220" rx="15" fill="url(#mini-body)" stroke="#a0a0a5" stroke-width="2"/>
+
+  <!-- Mac mini top surface -->
+  <ellipse cx="600" cy="320" rx="200" ry="30" fill="url(#mini-top)" stroke="#a0a0a5" stroke-width="1"/>
+
+  <!-- Apple Logo on top -->
+  <g transform="translate(600, 315)">
+    <path d="M 5 -10 Q 10 -10 10 -5 Q 10 0 7 3 Q 10 6 7 10 Q 0 10 -3 6 Q -6 10 -10 6 Q -6 3 -6 -3 Q -6 -10 0 -10 Q 3 -6 5 -10 Z"
+          fill="#86868b" opacity="0.5"/>
+  </g>
+
+  <!-- Ports on front -->
+  <g transform="translate(500, 520)">
+    <!-- Power light -->
+    <circle cx="0" cy="0" r="3" fill="#30d158" opacity="0.8"/>
+
+    <!-- USB-C ports -->
+    <rect x="20" y="-4" width="12" height="8" rx="2" fill="#2c2c2e" opacity="0.7"/>
+    <rect x="38" y="-4" width="12" height="8" rx="2" fill="#2c2c2e" opacity="0.7"/>
+
+    <!-- SD card slot -->
+    <rect x="60" y="-4" width="16" height="8" rx="2" fill="#2c2c2e" opacity="0.7"/>
+
+    <!-- Headphone jack -->
+    <circle cx="90" cy="0" r="4" fill="#2c2c2e" opacity="0.7"/>
+  </g>
+
+  <!-- Side details -->
+  <line x1="400" y1="360" x2="800" y2="360" stroke="#a0a0a5" stroke-width="1" opacity="0.3"/>
+  <line x1="400" y1="500" x2="800" y2="500" stroke="#a0a0a5" stroke-width="1" opacity="0.3"/>
+
+  <!-- Product name -->
+  <text x="600" y="650" font-family="SF Pro Display, -apple-system, system-ui, sans-serif" font-size="42" font-weight="700" fill="#1d1d1f" text-anchor="middle">
+    Mac mini
+  </text>
+  <text x="600" y="690" font-family="SF Pro Display, -apple-system, system-ui, sans-serif" font-size="20" font-weight="400" fill="#6e6e73" text-anchor="middle">
+    Mini sized. Mega capable.
+  </text>
+  <text x="600" y="730" font-family="SF Pro Display, -apple-system, system-ui, sans-serif" font-size="16" font-weight="300" fill="#86868b" text-anchor="middle">
+    Starting at $599
+  </text>
 </svg>

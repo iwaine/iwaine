@@ -1,43 +1,96 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450">
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="800" fill="url(#bg-gradient)"/>
+
+  <!-- Definitions -->
   <defs>
-    <linearGradient id="airBody" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#1e3a8a;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#0c1e47;stop-opacity:1" />
+    <!-- Background gradient -->
+    <linearGradient id="bg-gradient" x1="0" y1="0" x2="0" y2="800" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#f0f0f0"/>
+      <stop offset="100%" stop-color="#e0e0e0"/>
     </linearGradient>
-    <linearGradient id="airScreen" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#1f2937;stop-opacity:1" />
-      <stop offset="50%" style="stop-color:#111827;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#1f2937;stop-opacity:1" />
+
+    <!-- MacBook body gradient -->
+    <linearGradient id="laptop-gradient" x1="300" y1="200" x2="900" y2="600" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#e8e8ea"/>
+      <stop offset="50%" stop-color="#d1d1d6"/>
+      <stop offset="100%" stop-color="#c7c7cc"/>
     </linearGradient>
-    <radialGradient id="airGlow" cx="50%" cy="50%">
-      <stop offset="0%" style="stop-color:#60a5fa;stop-opacity:0.3" />
-      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:0" />
+
+    <!-- Screen gradient -->
+    <linearGradient id="screen-gradient" x1="350" y1="220" x2="850" y2="520" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#1d1d1f"/>
+      <stop offset="100%" stop-color="#2c2c2e"/>
+    </linearGradient>
+
+    <!-- Screen glow -->
+    <radialGradient id="screen-glow" cx="600" cy="370" r="300" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#3a7bd5" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#3a7bd5" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Shadow -->
+    <radialGradient id="shadow" cx="600" cy="650" r="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#000000" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
     </radialGradient>
   </defs>
-  
+
   <!-- Shadow -->
-  <ellipse cx="300" cy="420" rx="250" ry="20" fill="#000" opacity="0.2"/>
-  
-  <!-- Base/Bottom -->
-  <path d="M 100 380 L 500 380 L 480 400 L 120 400 Z" fill="url(#airBody)"/>
-  <path d="M 100 380 L 500 380 L 480 400 L 120 400 Z" fill="url(#airGlow)"/>
-  
-  <!-- Screen/Lid -->
-  <rect x="120" y="80" width="360" height="300" rx="15" fill="url(#airBody)"/>
-  <rect x="135" y="95" width="330" height="265" rx="5" fill="url(#airScreen)"/>
-  
-  <!-- Apple logo hint -->
-  <circle cx="300" cy="227" r="30" fill="#374151" opacity="0.3"/>
-  
-  <!-- Keyboard base -->
-  <path d="M 100 380 L 120 360 L 480 360 L 500 380 Z" fill="#0f172a"/>
-  
-  <!-- Notch -->
-  <rect x="285" y="95" width="30" height="10" rx="5" fill="#000"/>
-  
-  <!-- Keyboard dots -->
-  <circle cx="300" cy="370" r="2" fill="#4b5563"/>
-  
-  <!-- Light reflection on screen -->
-  <rect x="135" y="95" width="330" height="80" rx="5" fill="url(#airGlow)" opacity="0.1"/>
+  <ellipse cx="600" cy="650" rx="450" ry="80" fill="url(#shadow)"/>
+
+  <!-- MacBook Base -->
+  <path d="M 280 580 L 920 580 L 900 620 L 300 620 Z" fill="url(#laptop-gradient)" stroke="#a0a0a5" stroke-width="2"/>
+
+  <!-- MacBook Screen Base -->
+  <rect x="320" y="200" width="560" height="380" rx="12" fill="url(#laptop-gradient)" stroke="#a0a0a5" stroke-width="3"/>
+
+  <!-- Screen Bezel -->
+  <rect x="340" y="220" width="520" height="340" rx="8" fill="#1a1a1c" stroke="#4a4a4c" stroke-width="1"/>
+
+  <!-- Screen Display -->
+  <rect x="350" y="230" width="500" height="320" rx="4" fill="url(#screen-gradient)"/>
+
+  <!-- Screen Glow Effect -->
+  <rect x="350" y="230" width="500" height="320" rx="4" fill="url(#screen-glow)"/>
+
+  <!-- Screen Content - macOS UI mockup -->
+  <g opacity="0.7">
+    <!-- Menu bar -->
+    <rect x="360" y="240" width="480" height="20" fill="#2c2c2e" opacity="0.9"/>
+    <circle cx="375" cy="250" r="3" fill="#ff5f57"/>
+    <circle cx="390" cy="250" r="3" fill="#febc2e"/>
+    <circle cx="405" cy="250" r="3" fill="#28c840"/>
+
+    <!-- Dock representation -->
+    <rect x="480" y="520" width="240" height="20" rx="10" fill="#2c2c2e" opacity="0.8"/>
+    <rect x="490" y="524" width="12" height="12" rx="3" fill="#0a84ff" opacity="0.8"/>
+    <rect x="508" y="524" width="12" height="12" rx="3" fill="#30d158" opacity="0.8"/>
+    <rect x="526" y="524" width="12" height="12" rx="3" fill="#ff9f0a" opacity="0.8"/>
+    <rect x="544" y="524" width="12" height="12" rx="3" fill="#ff375f" opacity="0.8"/>
+
+    <!-- Window mockup -->
+    <rect x="420" y="300" width="360" height="180" rx="8" fill="#2c2c2e" opacity="0.6"/>
+    <rect x="430" y="320" width="340" height="150" rx="4" fill="#3a3a3c" opacity="0.5"/>
+  </g>
+
+  <!-- Keyboard area highlight -->
+  <rect x="350" y="585" width="500" height="30" rx="4" fill="#c7c7cc" opacity="0.5"/>
+
+  <!-- Trackpad -->
+  <rect x="520" y="595" width="160" height="100" rx="4" fill="#b8b8bd" stroke="#a0a0a5" stroke-width="1" opacity="0.7"/>
+
+  <!-- Apple Logo -->
+  <g transform="translate(590, 350)">
+    <path d="M 8 -15 Q 15 -15 15 -8 Q 15 0 10 5 Q 15 10 10 15 Q 0 15 -5 10 Q -10 15 -15 10 Q -10 5 -10 -5 Q -10 -15 0 -15 Q 5 -10 8 -15 Z"
+          fill="#ffffff" opacity="0.1"/>
+  </g>
+
+  <!-- Product name text -->
+  <text x="600" y="720" font-family="SF Pro Display, -apple-system, system-ui, sans-serif" font-size="32" font-weight="600" fill="#1d1d1f" text-anchor="middle">
+    MacBook Air
+  </text>
+  <text x="600" y="755" font-family="SF Pro Display, -apple-system, system-ui, sans-serif" font-size="18" font-weight="400" fill="#6e6e73" text-anchor="middle">
+    Light. Powerful. Portable.
+  </text>
 </svg>

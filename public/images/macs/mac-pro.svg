@@ -1,34 +1,79 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 500">
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="800" fill="url(#bg-gradient)"/>
+
   <defs>
-    <linearGradient id="proTower" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#4b5563;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#1f2937;stop-opacity:1" />
+    <linearGradient id="bg-gradient" x1="0" y1="0" x2="0" y2="800" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0a0a0c"/>
+      <stop offset="100%" stop-color="#000000"/>
     </linearGradient>
-    <pattern id="holes" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-      <circle cx="10" cy="10" r="3" fill="#6b7280"/>
+
+    <linearGradient id="pro-body" x1="350" y1="150" x2="850" y2="650" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#c7c7cc"/>
+      <stop offset="50%" stop-color="#aeaeb2"/>
+      <stop offset="100%" stop-color="#8e8e93"/>
+    </linearGradient>
+
+    <radialGradient id="shadow-pro" cx="600" cy="680" r="320" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#000000" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Lattice pattern for the front -->
+    <pattern id="lattice" x="0" y="0" width="15" height="15" patternUnits="userSpaceOnUse">
+      <circle cx="7.5" cy="7.5" r="3" fill="#3a3a3c"/>
     </pattern>
   </defs>
-  
+
   <!-- Shadow -->
-  <ellipse cx="300" cy="480" rx="150" ry="15" fill="#000" opacity="0.3"/>
-  
-  <!-- Tower body -->
-  <rect x="180" y="50" width="240" height="400" rx="15" fill="url(#proTower)"/>
-  
-  <!-- Cheese grater pattern -->
-  <rect x="195" y="80" width="210" height="340" fill="url(#holes)" opacity="0.4"/>
-  
-  <!-- Top handle -->
-  <rect x="260" y="50" width="80" height="15" rx="7" fill="#374151"/>
-  <rect x="270" y="45" width="60" height="10" rx="5" fill="#1f2937"/>
-  
-  <!-- Front panel -->
-  <rect x="195" y="420" width="210" height="20" rx="5" fill="#374151"/>
-  
-  <!-- Power button -->
-  <circle cx="300" cy="430" r="5" fill="#60a5fa"/>
-  
-  <!-- Ports indication -->
-  <rect x="210" y="425" width="15" height="8" rx="2" fill="#4b5563"/>
-  <rect x="235" cy="425" width="15" height="8" rx="2" fill="#4b5563"/>
+  <ellipse cx="600" cy="680" rx="350" ry="70" fill="url(#shadow-pro)"/>
+
+  <!-- Mac Pro Tower Body -->
+  <rect x="350" y="150" width="500" height="500" rx="20" fill="url(#pro-body)" stroke="#86868b" stroke-width="3"/>
+
+  <!-- Top handle cutouts -->
+  <rect x="450" y="155" width="300" height="30" rx="15" fill="#3a3a3c" opacity="0.6"/>
+
+  <!-- Lattice front panel -->
+  <rect x="375" y="220" width="450" height="400" rx="10" fill="url(#lattice)" opacity="0.7"/>
+
+  <!-- Power button glow -->
+  <circle cx="600" cy="630" r="8" fill="#f5f5f7" opacity="0.3"/>
+  <circle cx="600" cy="630" r="5" fill="#d1d1d6"/>
+
+  <!-- Side handles -->
+  <rect x="340" y="300" width="15" height="80" rx="7" fill="#8e8e93" stroke="#6e6e73" stroke-width="1"/>
+  <rect x="845" y="300" width="15" height="80" rx="7" fill="#8e8e93" stroke="#6e6e73" stroke-width="1"/>
+
+  <rect x="340" y="450" width="15" height="80" rx="7" fill="#8e8e93" stroke="#6e6e73" stroke-width="1"/>
+  <rect x="845" y="450" width="15" height="80" rx="7" fill="#8e8e93" stroke="#6e6e73" stroke-width="1"/>
+
+  <!-- Top edge detail -->
+  <line x1="370" y1="190" x2="830" y2="190" stroke="#d1d1d6" stroke-width="2" opacity="0.5"/>
+
+  <!-- Bottom feet -->
+  <rect x="380" y="650" width="60" height="15" rx="7" fill="#8e8e93"/>
+  <rect x="760" y="650" width="60" height="15" rx="7" fill="#8e8e93"/>
+
+  <!-- Apple Logo on lattice -->
+  <g transform="translate(600, 190)">
+    <path d="M 8 -14 Q 14 -14 14 -8 Q 14 0 10 5 Q 14 9 10 14 Q 0 14 -5 9 Q -9 14 -14 9 Q -9 5 -9 -5 Q -9 -14 0 -14 Q 5 -9 8 -14 Z"
+          fill="#f5f5f7" opacity="0.3"/>
+  </g>
+
+  <!-- I/O ports indication -->
+  <g transform="translate(400, 250)" opacity="0.5">
+    <rect x="0" y="0" width="10" height="6" rx="1" fill="#2c2c2e"/>
+    <rect x="15" y="0" width="10" height="6" rx="1" fill="#2c2c2e"/>
+    <rect x="30" y="0" width="10" height="6" rx="1" fill="#2c2c2e"/>
+    <rect x="45" y="0" width="10" height="6" rx="1" fill="#2c2c2e"/>
+  </g>
+
+  <!-- Product name -->
+  <text x="600" y="740" font-family="SF Pro Display, -apple-system, system-ui, sans-serif" font-size="48" font-weight="800" fill="#f5f5f7" text-anchor="middle">
+    Mac Pro
+  </text>
+  <text x="600" y="775" font-family="SF Pro Display, -apple-system, system-ui, sans-serif" font-size="22" font-weight="500" fill="#86868b" text-anchor="middle">
+    A beast of a workstation.
+  </text>
 </svg>

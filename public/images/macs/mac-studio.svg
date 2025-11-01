@@ -1,36 +1,92 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450">
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="800" fill="url(#bg-gradient)"/>
+
   <defs>
-    <linearGradient id="studioTop" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#f3f4f6;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#d1d5db;stop-opacity:1" />
+    <linearGradient id="bg-gradient" x1="0" y1="0" x2="0" y2="800" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#1a1a1c"/>
+      <stop offset="100%" stop-color="#0a0a0c"/>
     </linearGradient>
-    <linearGradient id="studioBody" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#d1d5db;stop-opacity:1" />
-      <stop offset="50%" style="stop-color:#9ca3af;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#6b7280;stop-opacity:1" />
+
+    <linearGradient id="studio-body" x1="380" y1="280" x2="820" y2="580" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#3a3a3c"/>
+      <stop offset="50%" stop-color="#2c2c2e"/>
+      <stop offset="100%" stop-color="#1c1c1e"/>
     </linearGradient>
+
+    <linearGradient id="studio-top" x1="380" y1="280" x2="820" y2="300" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#48484a"/>
+      <stop offset="100%" stop-color="#3a3a3c"/>
+    </linearGradient>
+
+    <radialGradient id="shadow-studio" cx="600" cy="600" r="280" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#000000" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
   </defs>
-  
+
   <!-- Shadow -->
-  <ellipse cx="300" cy="420" rx="200" ry="18" fill="#000" opacity="0.3"/>
-  
-  <!-- Body -->
-  <rect x="130" y="150" width="340" height="200" rx="20" fill="url(#studioBody)"/>
-  <rect x="130" y="150" width="340" height="40" rx="20" fill="url(#studioTop)"/>
-  
-  <!-- Ventilation slots -->
-  <rect x="150" y="170" width="300" height="2" fill="#9ca3af" opacity="0.5"/>
-  <rect x="150" y="180" width="300" height="2" fill="#9ca3af" opacity="0.5"/>
-  
-  <!-- Front ports -->
-  <circle cx="180" cy="300" r="7" fill="#4b5563"/>
-  <circle cx="210" cy="300" r="7" fill="#4b5563"/>
-  <circle cx="240" cy="300" r="7" fill="#4b5563"/>
-  <rect x="280" y="295" width="50" height="10" rx="5" fill="#4b5563"/>
-  
-  <!-- Side cooling pattern -->
-  <circle cx="420" cy="250" r="3" fill="#6b7280"/>
-  <circle cx="420" cy="270" r="3" fill="#6b7280"/>
-  <circle cx="420" cy="290" r="3" fill="#6b7280"/>
-  <circle cx="420" cy="310" r="3" fill="#6b7280"/>
+  <ellipse cx="600" cy="600" rx="300" ry="60" fill="url(#shadow-studio)"/>
+
+  <!-- Mac Studio body - taller than mini -->
+  <rect x="380" y="300" width="440" height="280" rx="18" fill="url(#studio-body)" stroke="#000000" stroke-width="3"/>
+
+  <!-- Mac Studio top surface -->
+  <ellipse cx="600" cy="300" rx="220" ry="35" fill="url(#studio-top)" stroke="#000000" stroke-width="1"/>
+
+  <!-- Thermal perforations on top (circular pattern) -->
+  <g opacity="0.3">
+    <circle cx="560" cy="295" r="2" fill="#000000"/>
+    <circle cx="580" cy="295" r="2" fill="#000000"/>
+    <circle cx="600" cy="295" r="2" fill="#000000"/>
+    <circle cx="620" cy="295" r="2" fill="#000000"/>
+    <circle cx="640" cy="295" r="2" fill="#000000"/>
+
+    <circle cx="570" cy="305" r="2" fill="#000000"/>
+    <circle cx="590" cy="305" r="2" fill="#000000"/>
+    <circle cx="610" cy="305" r="2" fill="#000000"/>
+    <circle cx="630" cy="305" r="2" fill="#000000"/>
+  </g>
+
+  <!-- Apple Logo on top -->
+  <g transform="translate(600, 295)">
+    <path d="M 6 -11 Q 11 -11 11 -6 Q 11 0 8 4 Q 11 7 8 11 Q 0 11 -4 7 Q -7 11 -11 7 Q -7 4 -7 -4 Q -7 -11 0 -11 Q 4 -7 6 -11 Z"
+          fill="#f5f5f7" opacity="0.2"/>
+  </g>
+
+  <!-- Ports on front -->
+  <g transform="translate(480, 560)">
+    <!-- Power light -->
+    <circle cx="0" cy="0" r="3" fill="#ff9f0a" opacity="0.9"/>
+
+    <!-- USB-C/Thunderbolt ports -->
+    <rect x="20" y="-5" width="14" height="10" rx="2" fill="#0a0a0c" stroke="#86868b" stroke-width="0.5"/>
+    <rect x="40" y="-5" width="14" height="10" rx="2" fill="#0a0a0c" stroke="#86868b" stroke-width="0.5"/>
+
+    <!-- SD card slot -->
+    <rect x="65" y="-5" width="18" height="10" rx="2" fill="#0a0a0c" stroke="#86868b" stroke-width="0.5"/>
+
+    <!-- Headphone jack -->
+    <circle cx="95" cy="0" r="5" fill="#0a0a0c" stroke="#86868b" stroke-width="0.5"/>
+  </g>
+
+  <!-- Side cooling vents -->
+  <g opacity="0.2">
+    <line x1="390" y1="350" x2="390" y2="550" stroke="#000000" stroke-width="1"/>
+    <line x1="395" y1="350" x2="395" y2="550" stroke="#000000" stroke-width="1"/>
+
+    <line x1="805" y1="350" x2="805" y2="550" stroke="#000000" stroke-width="1"/>
+    <line x1="810" y1="350" x2="810" y2="550" stroke="#000000" stroke-width="1"/>
+  </g>
+
+  <!-- Product name -->
+  <text x="600" y="680" font-family="SF Pro Display, -apple-system, system-ui, sans-serif" font-size="44" font-weight="700" fill="#f5f5f7" text-anchor="middle">
+    Mac Studio
+  </text>
+  <text x="600" y="720" font-family="SF Pro Display, -apple-system, system-ui, sans-serif" font-size="21" font-weight="400" fill="#86868b" text-anchor="middle">
+    Outrageous performance. Endless possibilities.
+  </text>
+  <text x="600" y="755" font-family="SF Pro Display, -apple-system, system-ui, sans-serif" font-size="16" font-weight="300" fill="#6e6e73" text-anchor="middle">
+    M2 Max • M2 Ultra
+  </text>
 </svg>
