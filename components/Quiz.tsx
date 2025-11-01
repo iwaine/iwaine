@@ -258,11 +258,11 @@ export default function Quiz() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 mb-12">
+        <div className="grid md:grid-cols-3 gap-8 mb-12 mt-6">
           {recommendations.map((mac, index) => (
-            <div key={mac.id} className="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-6 relative overflow-hidden">
+            <div key={mac.id} className={`bg-white dark:bg-gray-800 rounded-xl shadow-xl p-6 relative ${index === 0 ? 'mt-2' : ''}`}>
               {index === 0 && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-blue-600 text-white px-4 py-1 rounded-full text-sm font-semibold z-10">
+                <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-blue-600 text-white px-4 py-1 rounded-full text-sm font-semibold z-10 shadow-lg">
                   {t.quiz.results.bestMatch}
                 </div>
               )}
