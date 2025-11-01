@@ -121,15 +121,13 @@ export default function HomePage() {
           </h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {featuredMacs.map((mac) => (
-              <div key={mac.id} className="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-lg hover:shadow-xl transition overflow-hidden">
+              <div key={mac.id} className="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-lg hover:shadow-xl transition">
                 {/* Product Image */}
-                <div className="relative h-48 mb-6">
-                  <Image
+                <div className="relative h-48 mb-6 flex items-center justify-center">
+                  <img
                     src={mac.image}
                     alt={mac.name}
-                    fill
-                    className="object-contain"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="max-h-full max-w-full object-contain"
                   />
                 </div>
 

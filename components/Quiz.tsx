@@ -258,22 +258,22 @@ export default function Quiz() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 mb-12 mt-6">
+        <div className="grid md:grid-cols-3 gap-8 mb-12">
           {recommendations.map((mac, index) => (
-            <div key={mac.id} className={`bg-white dark:bg-gray-800 rounded-xl shadow-xl p-6 relative ${index === 0 ? 'mt-2' : ''}`}>
+            <div key={mac.id} className="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-6 relative">
               {index === 0 && (
-                <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-blue-600 text-white px-4 py-1 rounded-full text-sm font-semibold z-10 shadow-lg">
-                  {t.quiz.results.bestMatch}
+                <div className="flex justify-center mb-4 -mt-2">
+                  <span className="bg-blue-600 text-white px-4 py-1 rounded-full text-sm font-semibold shadow-lg">
+                    {t.quiz.results.bestMatch}
+                  </span>
                 </div>
               )}
 
-              <div className="relative h-40 mb-6 mt-2">
-                <Image
+              <div className="relative h-40 mb-6 flex items-center justify-center">
+                <img
                   src={mac.image}
                   alt={mac.name}
-                  fill
-                  className="object-contain"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="max-h-full max-w-full object-contain"
                 />
               </div>
 
